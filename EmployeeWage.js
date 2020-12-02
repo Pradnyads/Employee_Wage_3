@@ -152,26 +152,26 @@ console.log("Non Working Days: " + nonWorkingDays);
 console.log("UC10 showing Daily Hours Worked And Wage Earned : "+empDailyHrsAndWageArr);
 
 //UC_11A - UC_11D
-//UC11A-11D
+
 let totalWage = empDailyHrsAndWageArr
-.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0)
-.reduce((totalWage, dailyHrsAndWage) => totalWage += dailyHrsAndWage.dailyWage, 0);
+ .filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0)
+ .reduce((totalWage, dailyHrsAndWage) => totalWage += dailyHrsAndWage.dailyWage, 0);
 
 let totalHour = empDailyHrsAndWageArr
-.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0)
-.reduce((totalHour, dailyHrsAndWage) => totalHour += dailyHrsAndWage.dailyHours,0);
+ .filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0)
+ .reduce((totalHour, dailyHrsAndWage) => totalHour += dailyHrsAndWage.dailyHours,0);
 console.log("UC_11A Total Hours: " +totalHour+ "Total Wages:"+totalWage);
 
 process.stdout.write("UC 11B Logging Full Work Days")
 empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours ==8)
-.forEach(dailyHrsAndWage => process.stdout.write(dailyHrsAndWage.toString()));
+ .forEach(dailyHrsAndWage => process.stdout.write(dailyHrsAndWage.toString()));
 
 let partWorkingDayStrArr = empDailyHrsAndWageArr
-.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 4)
-.map(dailyHrsAndWage => dailyHrsAndWage.toString());
+ .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 4)
+ .map(dailyHrsAndWage => dailyHrsAndWage.toString());
 console.log("\nUC11C PartWorkingDayString"+ partWorkingDayStrArr);
 
 let nonWorkingDayNums = empDailyHrsAndWageArr
-.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0)
-.map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
+ .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0)
+ .map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
 console.log("UC11D NonWorkingDayNums : " + nonWorkingDayNums);
